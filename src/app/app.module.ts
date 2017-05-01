@@ -27,7 +27,7 @@ import { SourceOverviewWidgetComponent } from './core/widgets-v1/source-overview
 import { SimpleTableComponent } from './demo/tables/simple-table/simple-table.component';
 import { FixedHeaderTableComponent } from './demo/tables/fixed-header-table/fixed-header-table.component';
 import { FormWizardComponent } from './demo/forms/form-wizard/form-wizard.component';
-import { GoogleMapsComponent } from './demo/maps/google-maps/google-maps.component';
+// import { GoogleMapsComponent } from './demo/maps/google-maps/google-maps.component';
 import { CardsComponent } from './demo/components/cards/cards.component';
 import { DialogsComponent, DemoDialog } from './demo/components/dialogs/dialogs.component';
 import { IconsComponent } from './demo/icons/icons.component';
@@ -38,7 +38,7 @@ import { SnackBarComponent } from './demo/components/snack-bar/snack-bar.compone
 import { TooltipComponent } from './demo/components/tooltip/tooltip.component';
 import { DynamicMenuComponent } from './demo/dynamic-menu/dynamic-menu.component';
 import { environment } from "../environments/environment";
-import { Level5Component } from './demo/levels/level5/level5.component';
+// import { Level5Component } from './demo/levels/level5/level5.component';
 import {DynamicMenuService} from "./demo/dynamic-menu/dynamic-menu.service";
 import { AdminComponent } from './core/admin/admin.component';
 import { LoginComponent } from './demo/custom-pages/login/login.component';
@@ -52,7 +52,7 @@ import { BarChartComponent } from './core/widgets/bar-chart/bar-chart.component'
 import { LineChartComponent } from './core/widgets/line-chart/line-chart.component';
 import { RecentSalesComponent } from './core/widgets/recent-sales/recent-sales.component';
 import { PieChartComponent } from './core/widgets/pie-chart/pie-chart.component';
-import { GoogleMapsWidgetComponent } from './core/widgets/google-maps-widget/google-maps-widget.component';
+// import { GoogleMapsWidgetComponent } from './core/widgets/google-maps-widget/google-maps-widget.component';
 import { ActivityComponent } from './core/widgets/activity/activity.component';
 import { TrafficSourcesComponent } from './core/widgets/traffic-sources/traffic-sources.component';
 import { LoadingOverlayComponent } from './core/loading-overlay/loading-overlay.component';
@@ -61,6 +61,7 @@ import { DragAndDropComponent } from './demo/drag-and-drop/drag-and-drop.compone
 import { InboxComponent } from './demo/apps/inbox/inbox.component';
 import { MailService } from "./demo/apps/inbox/mail.service";
 import { InboxComposeComponent } from './demo/apps/inbox/inbox-compose/inbox-compose.component';
+import { NextComponent } from './demo/apps/next/next.component';
 import {CalendarModule} from "angular-calendar";
 import { CalendarComponent } from './demo/apps/calendar/calendar.component';
 import { CalendarEditComponent } from './demo/apps/calendar/calendar-edit/calendar-edit.component';
@@ -100,7 +101,7 @@ const sortablejsConfig: SortablejsOptions = {
     SimpleTableComponent,
     FixedHeaderTableComponent,
     FormWizardComponent,
-    GoogleMapsComponent,
+    // GoogleMapsComponent,
     CardsComponent,
     DialogsComponent,
     DemoDialog,
@@ -111,7 +112,7 @@ const sortablejsConfig: SortablejsOptions = {
     SnackBarComponent,
     TooltipComponent,
     DynamicMenuComponent,
-    Level5Component,
+    // Level5Component,
     AdminComponent,
     LoginComponent,
     RegisterComponent,
@@ -123,13 +124,15 @@ const sortablejsConfig: SortablejsOptions = {
     LineChartComponent,
     RecentSalesComponent,
     PieChartComponent,
-    GoogleMapsWidgetComponent,
+    // GoogleMapsWidgetComponent,
     ActivityComponent,
     TrafficSourcesComponent,
     LoadingOverlayComponent,
     DragAndDropComponent,
     InboxComponent,
+    NextComponent,
     InboxComposeComponent,
+    NextComponent,
     CalendarComponent,
     CalendarEditComponent,
     ChatComponent,

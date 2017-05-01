@@ -15,8 +15,8 @@ import {DynamicMenuComponent} from "./demo/dynamic-menu/dynamic-menu.component";
 import {FormElementsComponent} from "./demo/forms/form-elements/form-elements.component";
 import {FormWizardComponent} from "./demo/forms/form-wizard/form-wizard.component";
 import {IconsComponent} from "./demo/icons/icons.component";
-import {Level5Component} from "./demo/levels/level5/level5.component";
-import {GoogleMapsComponent} from "./demo/maps/google-maps/google-maps.component";
+// import {Level5Component} from "./demo/levels/level5/level5.component";
+// import {GoogleMapsComponent} from "./demo/maps/google-maps/google-maps.component";
 import {SimpleTableComponent} from "./demo/tables/simple-table/simple-table.component";
 import {FixedHeaderTableComponent} from "./demo/tables/fixed-header-table/fixed-header-table.component";
 import {LoginComponent} from "./demo/custom-pages/login/login.component";
@@ -26,6 +26,7 @@ import {EditorComponent} from "./demo/editor/editor.component";
 import {DashboardComponent} from "./demo/dashboard/dashboard.component";
 import {DragAndDropComponent} from "./demo/drag-and-drop/drag-and-drop.component";
 import {InboxComponent} from "./demo/apps/inbox/inbox.component";
+import {NextComponent} from "./demo/apps/next/next.component";
 import {CalendarComponent} from "./demo/apps/calendar/calendar.component";
 import {ChatComponent} from "./demo/apps/chat/chat.component";
 import {AutocompleteComponent} from "./demo/components/autocomplete/autocomplete.component";
@@ -55,6 +56,10 @@ const routes: Routes = [
       {
         path: 'apps/inbox',
         component: InboxComponent
+      },
+      {
+        path: 'apps/next',
+        component: NextComponent
       },
       {
         path: 'apps/calendar',
@@ -124,14 +129,14 @@ const routes: Routes = [
         path: 'icons',
         component: IconsComponent
       },
-      {
-        path: 'level1/level2/level3/level4/level5',
-        component: Level5Component
-      },
-      {
-        path: 'maps/google-maps',
-        component: GoogleMapsComponent
-      },
+      // {
+      //   path: 'level1/level2/level3/level4/level5',
+      //   component: Level5Component
+      // },
+      // {
+      //   path: 'maps/google-maps',
+      //   component: GoogleMapsComponent
+      // },
       {
         path: 'tables/simple-table',
         component: SimpleTableComponent
