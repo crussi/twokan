@@ -22,8 +22,9 @@ export class SidenavService {
     let dashboard = menu.addItem('Dashboard', 'dashboard', '/', 1);
 
     menu.addItem('Inbox', 'mail', '/apps/inbox', 1, '22', '#7986CC');
-    menu.addItem('Chat', 'chat', '/apps/chat', 2, '14', '#E15C74');
-    menu.addItem('Calendar', 'date_range', '/apps/calendar', 3);
+    menu.addItem('Next', 'check_box', '/apps/inbox', 2, '22', '#7986CC');
+    menu.addItem('Chat', 'chat', '/apps/chat', 3, '14', '#E15C74');
+    menu.addItem('Calendar', 'date_range', '/apps/calendar', 4);
 
     // let components =  menu.addItem('Components', 'layers', null, 3);
     // menu.addSubItem(components, 'Autocomplete', '/components/autocomplete', 1);
