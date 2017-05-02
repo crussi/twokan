@@ -3,8 +3,8 @@ $color__primary: #3F51B5;
 $color__read: #9F9F9F;
 $color__checkbox__star: #616161;
 
-$height__search__title: 56px;
-$margin-top__search__title: 42px;
+$height__inbox_input__title: 56px;
+$margin-top__inbox_input__title: 42px;
 
 :host {
   display: block;
@@ -31,11 +31,11 @@ $margin-top__search__title: 42px;
   }
 
   .navigation {
-    padding: $margin-top__search__title 24px 0;
+    padding: $margin-top__inbox_input__title 24px 0;
 
     .title-container {
-      min-height: $height__search__title;
-      max-height: $height__search__title;
+      min-height: $height__inbox_input__title;
+      max-height: $height__inbox_input__title;
       padding-left: 16px;
       padding-right: 16px;
       color: white;
@@ -109,21 +109,22 @@ $margin-top__search__title: 42px;
     max-width: 100%;
     height: 100%;
 
-    .search {
+    .inbox-input {
       background: white;
-      margin-top: $margin-top__search__title;
-      min-height: $height__search__title;
-      max-height: $height__search__title;
+      margin-top: $margin-top__inbox_input__title;
+      min-height: $height__inbox_input__title;
+      max-height: $height__inbox_input__title;
 
       md-icon {
         vertical-align: middle;
         margin-right: 14px;
         margin-left: 16px;
+        color: $color__inactive;
       }
 
       input {
         border: 0;
-        height: $height__search__title;
+        height: $height__inbox_input__title;
         outline: none;
       }
     }

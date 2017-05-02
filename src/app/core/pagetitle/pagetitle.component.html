@@ -1,9 +1,10 @@
 <ul class="breadcrumbs" fxLayout="row">
   <li *ngFor="let url of urls; let last = last; let first = first" [ngClass]="{'active': last}" fxLayout="row" fxLayoutAlign="center center"> <!-- disable link of last item -->
-    <md-icon *ngIf="!first">keyboard_arrow_right</md-icon>
-    <a role="button" *ngIf="!last && url == prefix">{{url}}</a>
-    <a role="button" *ngIf="!last && url != prefix">{{friendlyName(url)}}</a>
+    <!--<md-icon *ngIf="!first">keyboard_arrow_right</md-icon>-->
+    <md-icon *ngIf="last">{{icon(url)}}</md-icon>
+    <!--<a role="button" *ngIf="!last && url == prefix">{{url}}</a>-->
+    <!--<a role="button" *ngIf="!last">{{friendlyName(url)}}</a>-->
     <span *ngIf="last">{{friendlyName(url)}}</span>
-    <span *ngIf="last && url == prefix">{{friendlyName('/')}}</span>
+    <!--<span *ngIf="last && url == prefix">{{friendlyName('/')}}</span>-->
   </li>
 </ul>

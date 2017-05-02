@@ -4,6 +4,7 @@ import {Injectable} from "@angular/core";
 export class BreadcrumbService {
 
   private routesFriendlyNames: Map<string, string> = new Map<string, string>();
+  private routesIcons: Map<string, string> = new Map<string, string>();
   private routesFriendlyNamesRegex: Map<string, string> = new Map<string, string>();
   private routesWithCallback: Map<string, (string) => string> = new Map<string, (string) => string>();
   private routesWithCallbackRegex: Map<string, (string) => string> = new Map<string, (string) => string>();
@@ -16,8 +17,9 @@ export class BreadcrumbService {
    * @param route
    * @param name
    */
-  addFriendlyNameForRoute(route: string, name: string): void {
+  addFriendlyNameForRoute(route: string, name: string, icon: string): void {
     this.routesFriendlyNames.set(route, name);
+    this.routesIcons.set(name, icon ? icon : '');
   }
 
   /**
@@ -81,6 +83,17 @@ export class BreadcrumbService {
     });
 
     return name ? name : routeEnd;
+  }
+
+  getIcon(route: string): string{
+    let name = this.getFriendlyNameForRoute(route);
+    let icon = "";
+    this.routesIcons.forEach((value, key, map) => {
+      if (key === name) {
+        icon = value;
+      }
+    });
+    return icon ? icon : "";
   }
 
   /**

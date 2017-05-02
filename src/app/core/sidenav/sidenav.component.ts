@@ -43,12 +43,12 @@ export class SidenavComponent implements OnInit, OnDestroy {
     });
 
 
-    this.breadcrumbService.addFriendlyNameForRoute('/', "Dashboard");
-    this.breadcrumbService.addFriendlyNameForRoute('/apps', "Apps");
-    this.breadcrumbService.addFriendlyNameForRoute('/apps/inbox', "Inbox");
-    this.breadcrumbService.addFriendlyNameForRoute('/apps/next', "Next");
-    this.breadcrumbService.addFriendlyNameForRoute('/apps/calendar', "Calendar");
-    this.breadcrumbService.addFriendlyNameForRoute('/apps/chat', "Chat");
+    this.breadcrumbService.addFriendlyNameForRoute('/', "Dashboard","dashboard");
+    this.breadcrumbService.addFriendlyNameForRoute('/apps', "Apps","");
+    this.breadcrumbService.addFriendlyNameForRoute('/apps/inbox', "Inbox","inbox");
+    this.breadcrumbService.addFriendlyNameForRoute('/apps/next', "Next","check_box");
+    this.breadcrumbService.addFriendlyNameForRoute('/apps/calendar', "Calendar","calendar");
+    this.breadcrumbService.addFriendlyNameForRoute('/apps/chat', "Chat","");
     // this.breadcrumbService.addFriendlyNameForRoute('/components', "Components");
     // this.breadcrumbService.addFriendlyNameForRoute('/components/autocomplete', "Autocomplete");
     // this.breadcrumbService.addFriendlyNameForRoute('/components/buttons', "Buttons");

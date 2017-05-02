@@ -9,8 +9,8 @@ import { BreadcrumbService } from "../breadcrumb/breadcrumb.service";
 })
 export class PagetitleComponent implements OnInit, OnChanges {
 
-  @Input('prefix')
-  prefix: string  = '';
+  // @Input('prefix')
+  // prefix: string  = '';
 
   urls: string[];
   private _routerSubscription: any;
@@ -23,9 +23,9 @@ export class PagetitleComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.urls = [];
 
-    if (this.prefix.length > 0) {
-      this.urls.unshift(this.prefix);
-    }
+    // if (this.prefix.length > 0) {
+    //   this.urls.unshift(this.prefix);
+    // }
 
     this._routerSubscription = this.router.events.subscribe((navigationEnd:NavigationEnd) => {
       this.urls.length = 0; //Fastest way to clear out array
@@ -50,9 +50,10 @@ export class PagetitleComponent implements OnInit, OnChanges {
 
     if (url.lastIndexOf('/') > 0) {
       this.generateBreadcrumbTrail(url.substr(0, url.lastIndexOf('/'))); //Find last '/' and add everything before it as a parent route
-    } else if (this.prefix.length > 0) {
-      this.urls.unshift(this.prefix);
-    }
+    } 
+    // else if (this.prefix.length > 0) {
+    //   this.urls.unshift(this.prefix);
+    // }
   }
 
   navigateTo(url: string): void {
@@ -61,6 +62,12 @@ export class PagetitleComponent implements OnInit, OnChanges {
 
   friendlyName(url: string): string {
     return !url ? '' : this.breadcrumbService.getFriendlyNameForRoute(url);
+  }
+  icon(url: string): string {
+    console.log('the url: ' + url);
+    let x = this.breadcrumbService.getIcon(url);
+    console.log('here is icon: ' + x);
+    return !url ? '' : this.breadcrumbService.getIcon(url);
   }
 
   ngOnDestroy(): void {
