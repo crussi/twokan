@@ -1,29 +1,29 @@
 <div class="inbox" fxLayout="column">
   <div class="header mat-elevation-z2"></div>
   <div class="container" fxLayout="row">
-    <div class="navigation" fxFlex="250px" fxHide="true" fxHide.gt-md="false">
+    <div class="navigation" fxFlex="150px" fxHide="true" fxHide.gt-md="false">
 
-      <div class="title-container">
-        <md-icon>mail</md-icon>
+      <!--<div class="title-container">
+        <md-icon>inbox</md-icon>
         <span class="title">Inbox</span>
-      </div>
+      </div>-->
 
-      <div class="compose-container">
+      <!--<div class="compose-container">
         <button (click)="openComposeDialog()" class="compose" md-raised-button color="primary">
           <md-icon>mode_edit</md-icon>
           <span>Compose</span>
         </button>
-      </div>
+      </div>-->
 
       <md-nav-list class="nav-list">
-        <h3 md-subheader>Inbox</h3>
+        <!--<h3 md-subheader>Inbox</h3>
         <a class="nav-item mt0" (click)="setShownMailsByGroup('primary')" [class.active]="shownMailsTypeGroup == 'primary'" md-list-item>
           <h3 class="nav-title" md-line>
             <md-icon class="icon">inbox</md-icon>
             <span class="text">Primary {{ unreadMailsCount('primary') }}</span>
           </h3>
-        </a>
-        <a class="nav-item" (click)="setShownMailsByGroup('social')" [class.active]="shownMailsTypeGroup == 'social'" md-list-item>
+        </a>-->
+        <!--<a class="nav-item" (click)="setShownMailsByGroup('social')" [class.active]="shownMailsTypeGroup == 'social'" md-list-item>
           <h3 class="nav-title" md-line>
             <md-icon class="icon">group</md-icon>
             <span class="text">Social {{ unreadMailsCount('social') }}</span>
@@ -66,7 +66,7 @@
             <md-icon class="icon">delete</md-icon>
             <span class="text">Trash</span>
           </h3>
-        </a>
+        </a>-->
       </md-nav-list>
     </div>
 
@@ -74,9 +74,9 @@
 
       <div class="search mat-elevation-z2" fxLayout="row">
         <div fxLayout="row" fxLayoutAlign="center center">
-          <md-icon>search</md-icon>
+          <md-icon>star</md-icon>
         </div>
-        <input fxFlex type="search" placeholder="Search...">
+        <input fxFlex type="search" placeholder="Enter input ...">
       </div>
 
       <div class="mails-container mat-elevation-z2" fxFlex>
