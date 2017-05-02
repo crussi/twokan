@@ -163,7 +163,7 @@
             </a>
           </div>
 
-          <div class="no-mails-container" *ngIf="shownMails.length == 0 && !shownMailDetail" fxLayout="column" fxLayoutAlign="start center">
+          <div class="no-mails-container" *ngIf="allMails.length == 0 && !shownMailDetail" fxLayout="column" fxLayoutAlign="start center">
             <span class="no-mails">No inbox items ...</span>
           </div>
 
@@ -172,9 +172,9 @@
             <div class="mail-header" fxLayout="row">
               <!--<img class="avatar" src="//placehold.it/40x40">-->
               <div class="mail-info" fxLayout="column">
-                <span class="from">{{ shownMailDetail.subject }}</span>
-                <!--<span class="from">{{ shownMailDetail.from.name }}</span>-->
-                <!--<span class="to">to me <md-icon>arrow_drop_down</md-icon></span>-->
+                <span class="from">{{ shownMailDetail.owner }}</span>
+                <!--<span class="from">{{ shownMailDetail.from.name }}</span>
+                <span class="to">to me <md-icon>arrow_drop_down</md-icon></span>-->
               </div>
               <span fxFlex><!-- fill space--></span>
               <div class="mail-extra">
@@ -187,7 +187,7 @@
 
             <div class="mail-content">
               <div class="mail-content-text">
-                <p>{{ shownMailDetail.content }}</p>
+                <p>{{ shownMailDetail.description }}</p>
               </div>
 
               <!--<div class="attachments-container" *ngIf="shownMailDetail.attachments">

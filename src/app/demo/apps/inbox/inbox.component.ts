@@ -79,7 +79,7 @@ export class InboxComponent implements OnInit, OnDestroy, AfterViewChecked {
           && event.target.className != 'md-ripple-background'
           
           ) {
-            this.showMailDetail(this.shownMails[index]);
+            this.showMailDetail(this.allMails[index]);
           }
         })
       );
