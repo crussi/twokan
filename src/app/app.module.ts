@@ -72,6 +72,7 @@ import {PerfectScrollbarConfigInterface, PerfectScrollbarModule} from "ngx-perfe
 import {AgmCoreModule} from "@agm/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MediaReplayService} from "./core/mediareplay/media-replay.service";
+import { NgxLoremIpsumModule } from 'ngx-lorem-ipsum';
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -161,6 +162,7 @@ const sortablejsConfig: SortablejsOptions = {
     HighlightModule,
     SortablejsModule,
     CalendarModule.forRoot(),
+    NgxLoremIpsumModule
   ],
   providers: [
     SidenavService,

@@ -9,6 +9,7 @@ import {Subscription} from "rxjs";
 import {MailService} from "./mail.service";
 import {MdDialog, MdSnackBar} from "@angular/material";
 import {InboxComposeComponent} from "./inbox-compose/inbox-compose.component";
+import { NgxLoremIpsumService } from 'ngx-lorem-ipsum';
 
 @Component({
   selector: 'ms-inbox',
@@ -41,6 +42,7 @@ export class InboxComponent implements OnInit, OnDestroy, AfterViewChecked {
     private renderer: Renderer,
     public composeDialog: MdDialog,
     private snackBar: MdSnackBar,
+    private service: NgxLoremIpsumService
   ) { }
 
   ngOnInit() {
@@ -72,7 +74,11 @@ export class InboxComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.mailList.forEach((elem, index) => {
       this.clickListeners.push(
         this.renderer.listen(elem.nativeElement, 'click', (event) => {
-          if (event.target.className != 'md-checkbox-inner-container' && event.target.className != 'md-ripple-background') {
+          console.log('listen event.target.className: ' + event.target.className)
+          if (event.target.className != 'md-checkbox-inner-container' 
+          && event.target.className != 'md-ripple-background'
+          
+          ) {
             this.showMailDetail(this.shownMails[index]);
           }
         })

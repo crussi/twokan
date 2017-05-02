@@ -31,6 +31,7 @@
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.3",
     "moment": "^2.17.1",
+    "ngx-lorem-ipsum": "^0.1.1",
     "ngx-perfect-scrollbar": "^4.0.0",
     "ngx-quill": "^1.2.0",
     "normalize.css": "^5.0.0",

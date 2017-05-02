@@ -74,14 +74,14 @@
 
       <div class="search mat-elevation-z2" fxLayout="row">
         <div fxLayout="row" fxLayoutAlign="center center">
-          <md-icon>star</md-icon>
+          <md-icon>inbox</md-icon>
         </div>
-        <input fxFlex type="search" placeholder="Enter input ...">
+        <input fxFlex type="search" placeholder="Inbox quick add ...">
       </div>
 
       <div class="mails-container mat-elevation-z2" fxFlex>
         <div *ngIf="!shownMailDetail" class="toolbar" fxLayout="row" fxLayoutAlign="start center">
-          <md-checkbox class="checkbox" (click)="toggleSelectAllThreads()"></md-checkbox>
+          <!--<md-checkbox class="checkbox" (click)="toggleSelectAllThreads()"></md-checkbox>-->
           <span fxFlex><!-- fill space --></span>
           <span>1 - 25 of {{ shownMails.length }}</span>
           <div class="chevrons">
@@ -137,7 +137,7 @@
         <div class="mails">
           <div *ngIf="!shownMailDetail" class="mail-list">
             <a class="mail" #mailList *ngFor="let mail of shownMails" fxLayout="row" [class.read]="mail.read">
-              <div fxHide="true" fxHide.gt-xs="false" class="start-wrapper" fxFlex="180px" fxFlex.gt-sm="270px" fxLayout="row" fxLayoutAlign="start center">
+              <!--<div fxHide="true" fxHide.gt-xs="false" class="start-wrapper" fxFlex="180px" fxFlex.gt-sm="270px" fxLayout="row" fxLayoutAlign="start center">
                 <md-checkbox class="checkbox" [checked]="isSelected(mail)"></md-checkbox>
                 <button fxHide="true" fxHide.gt-sm="false" md-icon-button (click)="toggleStarred(mail)">
                   <md-icon *ngIf="!mail.starred" class="star">star_border</md-icon>
@@ -145,7 +145,7 @@
                 </button>
                 <img fxHide="true" fxHide.gt-sm="false" class="from-avatar" src="//placehold.it/40x40">
                 <span class="from-name">{{ mail.from.name }}</span>
-              </div>
+              </div>-->
               <p class="content-wrapper" fxLayout="row" fxLayoutAlign="start center">
                 <span class="labels">
                   <span class="label" *ngFor="let label of mail.labels" [style.background]="label.color">{{ label.name }}</span>
@@ -156,7 +156,7 @@
               </p>
               <div fxHide="true" fxHide.gt-xs="false" fxFlex="100px" fxFlex.gt-sm="200px" class="end-wrapper" fxLayout="row" fxLayoutAlign="end center">
                 <span class="when">{{ mail.when.fromNow() }}</span>
-                <button fxHide="true" fxHide.gt-sm="false"  class="options" [mdMenuTriggerFor]="mailOptions" md-icon-button>
+                <button fxHide="true" fxHide.gt-sm="false"  class="options"  md-icon-button>
                   <md-icon>more_vert</md-icon>
                 </button>
               </div>
@@ -170,10 +170,11 @@
           <div class="mail-detail" *ngIf="shownMailDetail">
 
             <div class="mail-header" fxLayout="row">
-              <img class="avatar" src="//placehold.it/40x40">
+              <!--<img class="avatar" src="//placehold.it/40x40">-->
               <div class="mail-info" fxLayout="column">
-                <span class="from">{{ shownMailDetail.from.name }}</span>
-                <span class="to">to me <md-icon>arrow_drop_down</md-icon></span>
+                <span class="from">{{ shownMailDetail.subject }}</span>
+                <!--<span class="from">{{ shownMailDetail.from.name }}</span>-->
+                <!--<span class="to">to me <md-icon>arrow_drop_down</md-icon></span>-->
               </div>
               <span fxFlex><!-- fill space--></span>
               <div class="mail-extra">
@@ -189,7 +190,7 @@
                 <p>{{ shownMailDetail.content }}</p>
               </div>
 
-              <div class="attachments-container" *ngIf="shownMailDetail.attachments">
+              <!--<div class="attachments-container" *ngIf="shownMailDetail.attachments">
                 <div class="attachments-header" fxLayout="row" fxLayoutAlign="start center">
                   <span class="title">Attachments</span>
                   <md-divider fxFlex></md-divider>
@@ -203,16 +204,20 @@
                     <img class="pointer" [src]="attachment">
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
 
-            <div class="respond" (click)="setRespondActive(true)" fxLayout="row" fxLayoutAlign="start center" *ngIf="!respondActive">
+            <!--<div class="respond" (click)="setRespondActive(true)" fxLayout="row" fxLayoutAlign="start center" *ngIf="!respondActive">
               <img class="avatar" src="assets/img/avatars/noavatar.png">
               <span class="click-reply">Click to <span class="semi-bold">Reply</span> or <span class="semi-bold">Forward</span></span>
-              <span fxFlex><!-- fill space --></span>
+              <span fxFlex>-->
+
+                <!-- fill space -->
+
+              <!--</span>
               <md-icon class="reply">reply</md-icon>
               <md-icon class="forward">forward</md-icon>
-            </div>
+            </div>-->
 
             <div class="respond respond-active" *ngIf="respondActive">
               <quill-editor></quill-editor>
@@ -236,3 +241,5 @@
   <md-divider></md-divider>
   <button md-menu-item> <md-icon>delete</md-icon> Delete </button>
 </md-menu>
+
+

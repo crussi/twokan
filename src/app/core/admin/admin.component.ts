@@ -28,16 +28,22 @@ export class AdminComponent implements OnInit {
 
   constructor(
     private media: ObservableMedia,
-    private router: Router,
-  ) { }
+    private router: Router) { 
+      this.setupIsMobile(this.media.isActive('xs') || this.media.isActive('sm'));
+  }
 
   ngOnInit() {
+    console.log(this.media.isActive('xs'));
+    console.log(this.media.isActive('sm'));
+    console.log(this.media.isActive('md'));
+    console.log(this.media.isActive('lg'));
     this._mediaSubscription = this.media.asObservable().subscribe((change: MediaChange) => {
-      let isMobile = (change.mqAlias == 'xs') || (change.mqAlias == 'sm');
+      this.setupIsMobile((change.mqAlias == 'xs') || (change.mqAlias == 'sm'));
+      // let isMobile = (change.mqAlias == 'xs') || (change.mqAlias == 'sm');
 
-      this.isMobile = isMobile;
-      this.sidenavMode = (isMobile) ? 'over' : 'side';
-      this.sidenavOpen = !isMobile;
+      // this.isMobile = isMobile;
+      // this.sidenavMode = (isMobile) ? 'over' : 'side';
+      // this.sidenavOpen = !isMobile;
     });
 
     this._routerEventsSubscription = this.router.events.subscribe((event) => {
@@ -45,6 +51,14 @@ export class AdminComponent implements OnInit {
         this.sidenav.close();
       }
     });
+  }
+
+  private setupIsMobile(smallSize:boolean){
+      let isMobile = smallSize;
+      this.isMobile = isMobile;
+      this.sidenavMode = (isMobile) ? 'over' : 'side';
+      this.sidenavOpen = !isMobile;
+
   }
 
   toggleFullscreen() {
