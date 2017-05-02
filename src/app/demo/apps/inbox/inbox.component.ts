@@ -2,11 +2,11 @@ import {
   Component, OnInit, OnDestroy, ViewChildren, QueryList, ElementRef,
   Renderer, AfterViewChecked
 } from '@angular/core';
-import {Mail} from "./mail.model";
+import {InboxItem} from "./inbox.model";
 import {fadeInAnimation} from "../../../route.animation";
 import * as _ from 'lodash';
 import {Subscription} from "rxjs";
-import {MailService} from "./mail.service";
+import {InboxService} from "./inbox.service";
 import {MdDialog, MdSnackBar} from "@angular/material";
 import {InboxComposeComponent} from "./inbox-compose/inbox-compose.component";
 import { NgxLoremIpsumService } from 'ngx-lorem-ipsum';
@@ -22,11 +22,11 @@ import { NgxLoremIpsumService } from 'ngx-lorem-ipsum';
 })
 export class InboxComponent implements OnInit, OnDestroy, AfterViewChecked {
 
-  shownMails: Mail[] = [ ];
-  shownMailDetail: Mail;
+  shownMails: InboxItem[] = [ ];
+  shownMailDetail: InboxItem;
 
-  allMails: Mail[] = [ ];
-  selectedMails: Mail[] = [ ];
+  allMails: InboxItem[] = [ ];
+  selectedMails: InboxItem[] = [ ];
 
   mailSubscription: Subscription;
   clickListeners: Function[] = [ ];
@@ -38,7 +38,7 @@ export class InboxComponent implements OnInit, OnDestroy, AfterViewChecked {
   mailList: QueryList<ElementRef>;
 
   constructor(
-    private mailService: MailService,
+    private inboxService: InboxService,
     private renderer: Renderer,
     public composeDialog: MdDialog,
     private snackBar: MdSnackBar,
@@ -46,25 +46,25 @@ export class InboxComponent implements OnInit, OnDestroy, AfterViewChecked {
   ) { }
 
   ngOnInit() {
-    this.mailSubscription = this.mailService.mails$.subscribe((mails) => {
+    this.mailSubscription = this.inboxService.mails$.subscribe((mails) => {
       this.allMails = _.sortBy(mails, 'when').reverse();
     });
 
-    this.setShownMailsByGroup('primary');
+    //this.setShownMailsByGroup('primary');
   }
 
   ngAfterViewChecked() {
     this.createMailListClickListeners();
   }
 
-  openComposeDialog() {
-    let dialogRef = this.composeDialog.open(InboxComposeComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.snackBar.open(result);
-      }
-    });
-  }
+  // openComposeDialog() {
+  //   let dialogRef = this.composeDialog.open(InboxComposeComponent);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       this.snackBar.open(result);
+  //     }
+  //   });
+  // }
 
   createMailListClickListeners() {
     this.clickListeners.forEach((listener) => {
@@ -91,64 +91,64 @@ export class InboxComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.respondActive = false;
   }
 
-  showMailDetail(mail: Mail) {
-    this.shownMailDetail = mail;
-    mail.read = true;
+  showMailDetail(item: InboxItem) {
+    this.shownMailDetail = item;
+    //item.read = true;
   }
 
-  setShownMailsByGroup(group: string) {
-    this.shownMails = this.allMails.filter((mail) => {
-      return (mail.group == group)
-    });
+  // setShownMailsByGroup(group: string) {
+  //   this.shownMails = this.allMails.filter((mail) => {
+  //     return (mail.group == group)
+  //   });
 
-    this.shownMailsTypeGroup = group;
-    this.resetTemporaries();
-  }
+  //   this.shownMailsTypeGroup = group;
+  //   this.resetTemporaries();
+  // }
 
-  setShownMailsByType(type: string) {
-    this.shownMails = this.allMails.filter((mail) => {
-      return (mail.type == type)
-    });
+  // setShownMailsByType(type: string) {
+  //   this.shownMails = this.allMails.filter((mail) => {
+  //     return (mail.type == type)
+  //   });
 
-    this.shownMailsTypeGroup = type;
-    this.resetTemporaries();
-  }
+  //   this.shownMailsTypeGroup = type;
+  //   this.resetTemporaries();
+  // }
 
-  setShownMailsToStarred() {
-    this.shownMails = this.allMails.filter((mail) => {
-      return (mail.starred == true)
-    });
+  // setShownMailsToStarred() {
+  //   this.shownMails = this.allMails.filter((mail) => {
+  //     return (mail.starred == true)
+  //   });
 
-    this.shownMailsTypeGroup = 'starred';
-    this.resetTemporaries();
-  }
+  //   this.shownMailsTypeGroup = 'starred';
+  //   this.resetTemporaries();
+  // }
 
-  toggleSelectAllThreads() {
-    if (this.selectedMails && this.selectedMails.length > 0) {
-      this.selectedMails = this.shownMails;
-    } else {
-      this.selectedMails = [ ];
-    }
-  }
+  // toggleSelectAllThreads() {
+  //   if (this.selectedMails && this.selectedMails.length > 0) {
+  //     this.selectedMails = this.shownMails;
+  //   } else {
+  //     this.selectedMails = [ ];
+  //   }
+  // }
 
-  toggleStarred(mail: Mail) {
-    mail.starred = !mail.starred;
-  }
+  // toggleStarred(mail: Mail) {
+  //   mail.starred = !mail.starred;
+  // }
 
   isSelected(mail) {
     return _.includes(this.selectedMails, mail);
   }
 
-  unreadMailsCount(group): string {
-    let count = this.allMails.filter((mail) => { return (mail.read == false && mail.group == group) }).length;
-    let text = '';
+  // unreadMailsCount(group): string {
+  //   let count = this.allMails.filter((mail) => { return (mail.read == false && mail.group == group) }).length;
+  //   let text = '';
 
-    if (count > 0) {
-      text = `(${count})`
-    }
+  //   if (count > 0) {
+  //     text = `(${count})`
+  //   }
 
-    return text;
-  }
+  //   return text;
+  // }
 
   setRespondActive(active: boolean) {
     this.respondActive = active;

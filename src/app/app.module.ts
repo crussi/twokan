@@ -59,6 +59,7 @@ import { LoadingOverlayComponent } from './core/loading-overlay/loading-overlay.
 import {SortablejsModule, SortablejsOptions} from "angular-sortablejs";
 import { DragAndDropComponent } from './demo/drag-and-drop/drag-and-drop.component';
 import { InboxComponent } from './demo/apps/inbox/inbox.component';
+import { InboxService } from "./demo/apps/inbox/inbox.service";
 import { MailService } from "./demo/apps/inbox/mail.service";
 import { InboxComposeComponent } from './demo/apps/inbox/inbox-compose/inbox-compose.component';
 import { NextComponent } from './demo/apps/next/next.component';
@@ -173,6 +174,7 @@ const sortablejsConfig: SortablejsOptions = {
     DynamicMenuService,
     D3ChartService,
     MailService,
+    InboxService,
     MediaReplayService
   ],
   bootstrap: [AppComponent]

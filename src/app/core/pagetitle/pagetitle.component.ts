@@ -64,9 +64,9 @@ export class PagetitleComponent implements OnInit, OnChanges {
     return !url ? '' : this.breadcrumbService.getFriendlyNameForRoute(url);
   }
   icon(url: string): string {
-    console.log('the url: ' + url);
+    //console.log('the url: ' + url);
     let x = this.breadcrumbService.getIcon(url);
-    console.log('here is icon: ' + x);
+    //console.log('here is icon: ' + x);
     return !url ? '' : this.breadcrumbService.getIcon(url);
   }
 

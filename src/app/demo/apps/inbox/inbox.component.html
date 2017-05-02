@@ -136,7 +136,7 @@
 
         <div class="mails">
           <div *ngIf="!shownMailDetail" class="mail-list">
-            <a class="mail" #mailList *ngFor="let mail of shownMails" fxLayout="row" [class.read]="mail.read">
+            <a class="mail" #mailList *ngFor="let inboxItem of allMails" fxLayout="row">
               <!--<div fxHide="true" fxHide.gt-xs="false" class="start-wrapper" fxFlex="180px" fxFlex.gt-sm="270px" fxLayout="row" fxLayoutAlign="start center">
                 <md-checkbox class="checkbox" [checked]="isSelected(mail)"></md-checkbox>
                 <button fxHide="true" fxHide.gt-sm="false" md-icon-button (click)="toggleStarred(mail)">
@@ -147,15 +147,15 @@
                 <span class="from-name">{{ mail.from.name }}</span>
               </div>-->
               <p class="content-wrapper" fxLayout="row" fxLayoutAlign="start center">
-                <span class="labels">
+                <!--<span class="labels">
                   <span class="label" *ngFor="let label of mail.labels" [style.background]="label.color">{{ label.name }}</span>
-                </span>
-                <span class="subject">{{ mail.subject }}</span>
-                <span class="middot">&middot;</span>
-                <span class="content">{{ mail.content }}</span>
+                </span>-->
+                <!--<span class="subject">{{ mail.subject }}</span>
+                <span class="middot">&middot;</span>-->
+                <span class="content">{{ inboxItem.description }}</span>
               </p>
               <div fxHide="true" fxHide.gt-xs="false" fxFlex="100px" fxFlex.gt-sm="200px" class="end-wrapper" fxLayout="row" fxLayoutAlign="end center">
-                <span class="when">{{ mail.when.fromNow() }}</span>
+                <span class="when">{{ inboxItem.when.fromNow() }}</span>
                 <button fxHide="true" fxHide.gt-sm="false"  class="options"  md-icon-button>
                   <md-icon>more_vert</md-icon>
                 </button>
@@ -164,7 +164,7 @@
           </div>
 
           <div class="no-mails-container" *ngIf="shownMails.length == 0 && !shownMailDetail" fxLayout="column" fxLayoutAlign="start center">
-            <span class="no-mails">No mails in {{ shownMailsTypeGroup }}</span>
+            <span class="no-mails">No inbox items ...</span>
           </div>
 
           <div class="mail-detail" *ngIf="shownMailDetail">

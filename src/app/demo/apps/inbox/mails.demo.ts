@@ -59,7 +59,7 @@ export let demoMails = [
       "mail": "demo@justademomail.com"
     },
     "subject": "consectetur qui irure",
-    "content": "Ex labore culpa eu quis commodo nulla excepteur minim elit. Veniam deserunt occaecat voluptate aliqua sint magna qui dolore minim nisi incididunt nulla. Aute aliquip ea laborum eiusmod dolor consectetur non est anim minim. Non ut anim commodo cupidatat id pariatur cupidatat ipsum voluptate laboris pariatur irure. Reprehenderit dolore incididunt minim consequat aute nisi anim ullamco anim in aute aliquip. Ut ex esse eiusmod aliquip dolor magna sunt amet cupidatat minim sit sit.\n\nDolor ex ea ex cillum quis eiusmod aute sint adipisicing non mollit adipisicing. Anim veniam voluptate est quis id commodo magna fugiat. Nisi nulla est consequat non deserunt ullamco nostrud dolor mollit. Adipisicing aliqua ullamco cupidatat ut sunt culpa deserunt incididunt cupidatat. Tempor minim elit officia tempor est labore mollit voluptate exercitation velit officia aute. Sint quis magna quis laborum enim minim do irure exercitation.\n\nEst pariatur proident consectetur enim irure consectetur non labore. Ipsum adipisicing dolor magna dolore non consectetur minim excepteur amet minim veniam velit consequat. Cillum in nostrud duis ullamco elit consequat labore Lorem excepteur. Nulla culpa adipisicing est eiusmod sunt ipsum ex in.",
+    "content": "Dolore consequat aliqua id Lorem do in laborum veniam proident occaecat reprehenderit aute laborum.",
     "when": moment().subtract(80, "minutes"),
     "read": true,
     "starred": true,
