@@ -73,6 +73,7 @@ import {AgmCoreModule} from "@agm/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MediaReplayService} from "./core/mediareplay/media-replay.service";
 import { NgxLoremIpsumModule } from 'ngx-lorem-ipsum';
+import { PagetitleComponent } from './core/pagetitle/pagetitle.component';
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -137,7 +138,8 @@ const sortablejsConfig: SortablejsOptions = {
     CalendarComponent,
     CalendarEditComponent,
     ChatComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    PagetitleComponent
   ],
   entryComponents: [
     DemoDialog,
