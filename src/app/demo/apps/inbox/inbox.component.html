@@ -172,7 +172,8 @@
             <div class="mail-header" fxLayout="row">
               <!--<img class="avatar" src="//placehold.it/40x40">-->
               <div class="mail-info" fxLayout="column">
-                <span class="from">{{ shownMailDetail.owner }}</span>
+                <span class="from">Created by </span>
+                <span class="to">{{ shownMailDetail.owner }}</span>
                 <!--<span class="from">{{ shownMailDetail.from.name }}</span>
                 <span class="to">to me <md-icon>arrow_drop_down</md-icon></span>-->
               </div>
@@ -189,7 +190,7 @@
               <div class="mail-content-text">
                 <p>{{ shownMailDetail.description }}</p>
               </div>
-
+              <ms-wizard-beginner></ms-wizard-beginner>
               <!--<div class="attachments-container" *ngIf="shownMailDetail.attachments">
                 <div class="attachments-header" fxLayout="row" fxLayoutAlign="start center">
                   <span class="title">Attachments</span>
@@ -218,14 +219,14 @@
               <md-icon class="reply">reply</md-icon>
               <md-icon class="forward">forward</md-icon>
             </div>-->
-
+<!--
             <div class="respond respond-active" *ngIf="respondActive">
               <quill-editor></quill-editor>
               <div class="respond-buttons" fxLayout="row" fxLayoutAlign="end stretch">
                 <button md-button (click)="setRespondActive(false)">Cancel</button>
                 <button md-raised-button color="primary" (click)="setRespondActive(false)">Send <md-icon>send</md-icon></button>
               </div>
-            </div>
+            </div>-->
 
           </div>
         </div>

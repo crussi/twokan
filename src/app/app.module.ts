@@ -75,6 +75,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MediaReplayService} from "./core/mediareplay/media-replay.service";
 import { NgxLoremIpsumModule } from 'ngx-lorem-ipsum';
 import { PagetitleComponent } from './core/pagetitle/pagetitle.component';
+import { WizardBeginnerComponent } from './demo/apps/inbox/wizard-beginner/wizard-beginner.component';
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -140,7 +141,8 @@ const sortablejsConfig: SortablejsOptions = {
     CalendarEditComponent,
     ChatComponent,
     AutocompleteComponent,
-    PagetitleComponent
+    PagetitleComponent,
+    WizardBeginnerComponent
   ],
   entryComponents: [
     DemoDialog,

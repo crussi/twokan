@@ -305,7 +305,7 @@ $margin-top__inbox_input__title: 42px;
           padding: 24px 32px;
 
           .mail-header {
-
+// background: yellow;
             .avatar {
               height: 45px;
               width: 45px;
@@ -348,11 +348,11 @@ $margin-top__inbox_input__title: 42px;
           }
 
           .mail-content {
-            margin-top: 32px;
+            // background: lime;
+            margin-top: 10px;
             margin-bottom: 240px;
 
             .mail-content-text {
-
             }
           }
 
