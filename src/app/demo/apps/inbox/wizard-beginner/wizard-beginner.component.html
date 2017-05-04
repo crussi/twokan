@@ -12,7 +12,7 @@
               <div fxLayout="column" fxLayout.gt-sm="row">
                 <h3 class="question">Is this actionable?</h3>
               </div>
-              <div fxLayout="column" fxLayout.gt-sm="row" class="is-actionable-btns">
+              <div fxLayout="column" fxLayout.gt-sm="row" class="yes-no-btns">
                   <button md-raised-button 
                   color="accent"
                   (click)="isActionable('Yes')">Yes</button>
@@ -24,6 +24,8 @@
             </div>
           </form>
         </md-tab>
+
+        <!-- isactionable -->        
         <md-tab label="1" [disabled]="!form.valid">
           <form #form2="ngForm">
             <h3 class="title">{{description}}</h3>
@@ -32,53 +34,340 @@
               <div fxLayout="column" fxLayout.gt-sm="row">
                 <h3 class="question">Does this require multiple steps?</h3>
               </div>
-              <div fxLayout="column" fxLayout.gt-sm="row" class="is-actionable-btns">
+              <div fxLayout="column" fxLayout.gt-sm="row" class="yes-no-btns">
                   <button md-raised-button 
                   color="accent"
-                  (click)="isProject('Yes')">Yes</button>
+                  (click)="nextStep('isproject')">Yes</button>
                   <button md-raised-button 
                   style="margin-left: 8px;"
-                  (click)="isProject('No')">No</button>
+                  (click)="nextStep('notproject')">No</button>
 
               </div>
             </div>
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('isactionable')">Previous</button>
+
+              <!--<button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form3.valid"
+                      (click)="nextStep('notactionable')"
+                      type="button">Next</button>-->
+            </div>             
           </form>
         </md-tab>
+
+        <!-- notactionable -->
         <md-tab label="2"  [disabled]="!form2.valid">
           <form #form3="ngForm">
             <h3 class="title">{{description}}</h3>
             <div fxLayout="column" style="height: 300px" fxLayoutAlign="center center">
               <div fxLayout="column" fxLayout.gt-sm="row">
-                <h3 class="question">How would you categorize it?</h3>
+                <h3 class="question">How would you categorize this?</h3>
               </div>              
               <div fxLayout="column" fxLayout.gt-sm="row">
                 <md-radio-group class="example-radio-group" name="notActionableOptions" [(ngModel)]="notActionable">
-                  <md-radio-button class="example-radio-button" checked="false" [value]="trash">Trash?</md-radio-button>
-                  <md-radio-button class="example-radio-button" checked="false" [value]="someday">Someday?</md-radio-button>
-                  <md-radio-button class="example-radio-button" checked="false" [value]="reference">Reference?</md-radio-button>
-                </md-radio-group>
+                  <md-radio-button value="trash">Trash?</md-radio-button>
+                  <md-radio-button value="someday">Someday?</md-radio-button>
+                  <md-radio-button value="reference">Reference?</md-radio-button>
+                </md-radio-group>             
               </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('isactionable')">Previous</button>
+
+              <button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form3.valid"
+                      (click)="nextStep('confirmlist')"
+                      type="button">Next</button>
+            </div>            
+          </form>
+        </md-tab>
+
+        <!-- confirmlist -->
+        <md-tab label="3"  [disabled]="!form4.valid">
+          <form #form4="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px" fxLayoutAlign="center center">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">This will be added to the "{{notActionable}}" list.</h3>
+              </div>              
             </div>
               <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
                 <button md-button
                         type="button"
-                        (click)="previousStep('isactionable')">Previous</button>
+                        (click)="nextStep('notactionable')">Previous</button>
 
                 <button color="primary"
                         md-raised-button
                         style="margin-left: 8px;"
-                        [disabled]="!form3.valid"
-                        (click)="nextStep('helloworld')"
-                        type="button">Next</button>
+                        [disabled]="!form4.valid"
+                        (click)="nextStep('process-notactionable')"
+                        type="button">Ok</button>
               </div>            
           </form>
         </md-tab>
-        <md-tab label="3"  [disabled]="!form3.valid">
-          <div fxLayout="column" style="padding: 16px;">
-            <h1>Congratulations!</h1>
-            <p>You submitted the form.</p>
-          </div>
+
+        <!-- isproject -->
+        <md-tab label="4"  [disabled]="!form5.valid">
+          <form #form5="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px; padding-left: 40px; padding-right:40px">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">Start a project</h3>
+              </div>              
+              <div fxLayout="column" fxLayout.gt-sm="column">
+                <md-input-container fxFlex>
+                  <input mdInput
+                         name="outcome"
+                         placeholder="Expected outcome"
+                         required
+                         ngModel>
+                </md-input-container>
+                <md-input-container fxFlex>
+                  <input mdInput
+                         name="title"
+                         placeholder="Project title"
+                         required
+                         ngModel>
+                </md-input-container>
+              </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('multiplesteps')">Previous</button>
+
+              <button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form5.valid"
+                      (click)="nextStep('addactions')"
+                      type="button">Next</button>
+            </div>            
+          </form>
         </md-tab>
+
+
+        <!-- addactions -->
+        <md-tab label="5"  [disabled]="!form6.valid">
+          <form #form6="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px; padding-left: 40px; padding-right:40px">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">Identify first few actions ...</h3>
+              </div>              
+              <div fxLayout="column" fxLayout.gt-sm="column" style="padding: 16px">
+                <md-input-container fxFlex>
+                  <input mdInput
+                         name="action1"
+                         placeholder="First action"
+                         required
+                         ngModel>
+                </md-input-container>                              
+                <md-input-container fxFlex>
+                  <input mdInput
+                         name="action2"
+                         placeholder="Second action"
+                         ngModel>
+                </md-input-container>                              
+                <md-input-container fxFlex>
+                  <input mdInput
+                         name="action3"
+                         placeholder="Third action"
+                         ngModel>
+                </md-input-container>                              
+                             
+              </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('isproject')">Previous</button>
+
+              <button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form6.valid"
+                      (click)="nextStep('saveproject')"
+                      type="button">Next</button>
+            </div>            
+          </form>
+        </md-tab>
+
+        <!-- notproject -->
+        <md-tab label="6"  [disabled]="!form7.valid">
+          <form #form7="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px; padding-left: 40px; padding-right:40px">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">What is the next action?</h3>
+              </div>              
+              <div fxLayout="column" fxLayout.gt-sm="column">
+                <md-input-container fxFlex>
+                  <input mdInput
+                         name="nextaction"
+                         placeholder="Next action"
+                         required
+                         ngModel>
+                </md-input-container>                              
+
+              </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('multiplesteps')">Previous</button>
+
+              <button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form7.valid"
+                      (click)="nextStep('donein2')"
+                      type="button">Next</button>
+            </div>            
+          </form>
+        </md-tab>  
+
+        <!-- donein2 -->
+        <md-tab label="7"  [disabled]="!form8.valid">
+          <form #form8="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px; padding-left: 40px; padding-right:40px">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">Can this be done in less than 2-5 minutes?</h3>
+              </div>              
+              <div fxLayout="column" fxLayout.gt-sm="row"  fxLayoutAlign="center center" class="yes-no-btns">
+                  <button md-raised-button 
+                  color="accent"
+                  (click)="nextStep('doitnow')">Yes</button>
+                  <button md-raised-button 
+                  style="margin-left: 8px;"
+                  (click)="nextStep('candelegate')">No</button>
+
+              </div>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('notproject')">Previous</button>
+
+              <!--<button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form8.valid"
+                      (click)="nextStep('')"
+                      type="button">Next</button>-->
+            </div>            
+          </form>
+        </md-tab>        
+
+        <!-- doitnow -->
+        <md-tab label="8"  [disabled]="!form9.valid">
+          <form #form9="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px; padding-left: 40px; padding-right:40px">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h2>Do it now!</h2>
+                <h3 class="question">Were you able to complete it?</h3>
+              </div>              
+              <div fxLayout="column" fxLayout.gt-sm="row" class="yes-no-btns"  fxLayoutAlign="center center">
+                  <button md-raised-button 
+                  color="accent"
+                  (click)="nextStep('helloworld')">Yes</button>
+                  <button md-raised-button 
+                  style="margin-left: 8px;"
+                  (click)="nextStep('multiplesteps')">No</button>
+
+              </div>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('')">Previous</button>
+
+              <!--<button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form8.valid"
+                      (click)="nextStep('')"
+                      type="button">Next</button>-->
+            </div>            
+          </form>
+        </md-tab>        
+
+        <!-- candelegate -->
+        <md-tab label="9"  [disabled]="!form10.valid">
+          <form #form10="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px; padding-left: 40px; padding-right:40px">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">Can this be delegated?</h3>
+              </div>              
+              <div fxLayout="column" fxLayout.gt-sm="row"  fxLayoutAlign="center center" class="yes-no-btns">
+                  <button md-raised-button 
+                  color="accent"
+                  (click)="nextStep('delegate')">Yes</button>
+                  <button md-raised-button 
+                  style="margin-left: 8px;"
+                  (click)="nextStep('helloworld')">No</button>
+
+              </div>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+              <button md-button
+                      type="button"
+                      (click)="nextStep('notproject')">Previous</button>
+
+              <!--<button color="primary"
+                      md-raised-button
+                      style="margin-left: 8px;"
+                      [disabled]="!form8.valid"
+                      (click)="nextStep('')"
+                      type="button">Next</button>-->
+            </div>            
+          </form>
+        </md-tab>        
+
+        <!-- delegate -->
+        <md-tab label="10"  [disabled]="!form11.valid">
+          <form #form11="ngForm">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px" fxLayoutAlign="center center">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">Choose delegate ...</h3>
+              </div>              
+            </div>
+              <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
+                <button md-button
+                        type="button"
+                        (click)="nextStep('helloworld')">Previous</button>
+
+                <button color="primary"
+                        md-raised-button
+                        style="margin-left: 8px;"
+                        [disabled]="!form4.valid"
+                        (click)="nextStep('helloworld')"
+                        type="button">Ok</button>
+              </div>            
+          </form>
+        </md-tab>
+
       </md-tab-group>
     </md-card-content>
   </md-card>
