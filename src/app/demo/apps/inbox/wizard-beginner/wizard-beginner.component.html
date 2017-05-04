@@ -1,137 +1,79 @@
 <div fxLayout="row" fxLayoutAlign="center center">
   <md-card fxFlex="100%" style="padding: 0;">
-    <md-toolbar style="position: relative; z-index: 4;">Is this actionable?</md-toolbar>
+    <!--<md-toolbar style="position: relative; z-index: 4;">Is this actionable?</md-toolbar>-->
+    <!--style="margin-top:-50px;position: relative; z-index: 3;"-->
     <md-card-content>
-      <md-tab-group [selectedIndex]="selectedIndex" style="margin-top:-50px;position: relative; z-index: 3;">
-        <md-tab label="">
+      <md-tab-group [selectedIndex]="selectedIndex" >
+        <md-tab label="0">
           <form #form="ngForm">
-            <div fxLayout="column" style="height: 300px" fxLayoutAlign="space-around center">
-
-              <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="center center">
-                <button md-raised-button 
-                color="accent"
-                (click)="isActionable('Yes')">Yes</button>
-                <button md-raised-button 
-                style="margin-left: 8px;"
-                (click)="isActionable('No')">No</button>
+            <h3 class="title">{{description}}</h3>
+            
+            <div fxLayout="column" style="height: 300px" fxLayoutAlign="center center">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">Is this actionable?</h3>
               </div>
+              <div fxLayout="column" fxLayout.gt-sm="row" class="is-actionable-btns">
+                  <button md-raised-button 
+                  color="accent"
+                  (click)="isActionable('Yes')">Yes</button>
+                  <button md-raised-button 
+                  style="margin-left: 8px;"
+                  (click)="isActionable('No')">No</button>
 
-              <!--<div fxLayout="row" fxLayoutAlign="end center">
-                <button md-button
-                        type="button"
-                        disabled>Previous</button>
-
-                <button color="primary"
-                        md-raised-button
-                        style="margin-left: 8px;"
-                        [disabled]="!form.valid"
-                        (click)="nextStep()"
-                        type="button">Next</button>
-              </div>-->
+              </div>
             </div>
           </form>
         </md-tab>
-        <md-tab label="YOUR ADDRESS" [disabled]="!form.valid">
+        <md-tab label="1" [disabled]="!form.valid">
           <form #form2="ngForm">
-            <div fxLayout="column" style="padding: 16px;">
+            <h3 class="title">{{description}}</h3>
+            
+            <div fxLayout="column" style="height: 300px" fxLayoutAlign="center center">
               <div fxLayout="column" fxLayout.gt-sm="row">
-                <md-input-container fxFlex>
-                  <input mdInput
-                         name="firstname"
-                         placeholder="First Name"
-                         required>
-                </md-input-container>
-                <md-input-container fxFlex>
-                  <input mdInput
-                         name="lastname"
-                         placeholder="Last Name"
-                         required
-                         ngModel>
-                </md-input-container>
+                <h3 class="question">Does this require multiple steps?</h3>
               </div>
+              <div fxLayout="column" fxLayout.gt-sm="row" class="is-actionable-btns">
+                  <button md-raised-button 
+                  color="accent"
+                  (click)="isProject('Yes')">Yes</button>
+                  <button md-raised-button 
+                  style="margin-left: 8px;"
+                  (click)="isProject('No')">No</button>
 
-              <md-input-container fxFlex>
-                <input mdInput
-                       name="street"
-                       required
-                       ngModel
-                       placeholder="Street">
-              </md-input-container>
-
-              <div fxLayout="column" fxLayout.gt-sm="row">
-                <md-input-container fxFlex>
-                  <input mdInput
-                         name="zipcode"
-                         required
-                         ngModel
-                         placeholder="Zipcode">
-                </md-input-container>
-                <md-input-container fxFlex>
-                  <input mdInput
-                         name="city"
-                         required
-                         ngModel
-                         placeholder="City">
-                </md-input-container>
-              </div>
-
-              <div fxLayout="row" fxLayoutAlign="end center">
-                <button md-button
-                        type="button"
-                        (click)="previousStep()">Previous</button>
-
-                <button color="primary"
-                        md-raised-button
-                        style="margin-left: 8px;"
-                        [disabled]="!form2.valid"
-                        (click)="nextStep()"
-                        type="button">Next</button>
               </div>
             </div>
           </form>
         </md-tab>
-        <md-tab label="BILLING DETAILS"  [disabled]="!form2.valid">
+        <md-tab label="2"  [disabled]="!form2.valid">
           <form #form3="ngForm">
-            <div fxLayout="column" style="padding: 16px;">
-              <md-input-container fxFlex>
-                <input mdInput
-                       name="creditcard"
-                       placeholder="Credit Card Number"
-                       required>
-              </md-input-container>
-
-              <md-input-container fxFlex>
-                <input mdInput
-                       name="creditcardname"
-                       required
-                       ngModel
-                       placeholder="Credit Card Owner">
-              </md-input-container>
-
-              <md-input-container fxFlex>
-                <input mdInput
-                       name="expirydate"
-                       required
-                       ngModel
-                       placeholder="Expiry Date (MM/YYYY)">
-              </md-input-container>
-
-              <div fxLayout="row" fxLayoutAlign="end center">
+            <h3 class="title">{{description}}</h3>
+            <div fxLayout="column" style="height: 300px" fxLayoutAlign="center center">
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <h3 class="question">How would you categorize it?</h3>
+              </div>              
+              <div fxLayout="column" fxLayout.gt-sm="row">
+                <md-radio-group class="example-radio-group" name="notActionableOptions" [(ngModel)]="notActionable">
+                  <md-radio-button class="example-radio-button" checked="false" [value]="trash">Trash?</md-radio-button>
+                  <md-radio-button class="example-radio-button" checked="false" [value]="someday">Someday?</md-radio-button>
+                  <md-radio-button class="example-radio-button" checked="false" [value]="reference">Reference?</md-radio-button>
+                </md-radio-group>
+              </div>
+            </div>
+              <div fxLayout="row" fxLayoutAlign="end center" style="padding-bottom: 16px; padding-right: 16px;">
                 <button md-button
                         type="button"
-                        (click)="previousStep()">Previous</button>
+                        (click)="previousStep('isactionable')">Previous</button>
 
                 <button color="primary"
                         md-raised-button
                         style="margin-left: 8px;"
                         [disabled]="!form3.valid"
-                        (click)="nextStep()"
+                        (click)="nextStep('helloworld')"
                         type="button">Next</button>
-              </div>
-            </div>
+              </div>            
           </form>
         </md-tab>
-        <md-tab label="CONFIRMATION"  [disabled]="!form3.valid">
+        <md-tab label="3"  [disabled]="!form3.valid">
           <div fxLayout="column" style="padding: 16px;">
             <h1>Congratulations!</h1>
             <p>You submitted the form.</p>

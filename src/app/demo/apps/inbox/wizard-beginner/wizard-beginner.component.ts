@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {fadeInAnimation} from "../../../../route.animation";
 
 @Component({
@@ -11,24 +11,44 @@ import {fadeInAnimation} from "../../../../route.animation";
   animations: [ fadeInAnimation ]
 })
 export class WizardBeginnerComponent implements OnInit {
+  @Input('description') description: string;
 
   selectedIndex: number = 0;
+  notActionable: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  nextStep() {
-    this.selectedIndex += 1;
+  nextStep(step) {
+    //this.selectedIndex += 1;
+    console.log('notActionable: ' + this.notActionable);
+    console.log('nextStep: ' + step);
   }
-
+  previousStep(step) {
+    //this.selectedIndex -= 1;
+    console.log('previousStep: ' + step);
+  }
   isActionable(yesno){
     console.log('isActionable: ' + yesno);
+    if (yesno.toLowerCase() == 'yes') {
+      console.log('yes ... selectedIndex = 1');
+      this.selectedIndex = 1;
+    } else {
+      console.log('no ... selectedIndex = 2');
+      this.selectedIndex = 2;
+    }
   }
+  isProject(yesno){
+    console.log('isProject: ' + yesno);
+    if (yesno.toLowerCase() == 'yes') {
+      //this.selectedIndex = 1;
+    } else {
+      //this.selectedIndex = 2;
+    }
+  }  
 
-  previousStep() {
-    this.selectedIndex -= 1;
-  }
+
 
 }

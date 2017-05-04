@@ -187,10 +187,10 @@
             </div>
 
             <div class="mail-content">
-              <div class="mail-content-text">
+              <!--<div class="mail-content-text">
                 <p>{{ shownMailDetail.description }}</p>
-              </div>
-              <ms-wizard-beginner></ms-wizard-beginner>
+              </div>-->
+              <ms-wizard-beginner [description]="shownMailDetail.description"></ms-wizard-beginner>
               <!--<div class="attachments-container" *ngIf="shownMailDetail.attachments">
                 <div class="attachments-header" fxLayout="row" fxLayoutAlign="start center">
                   <span class="title">Attachments</span>

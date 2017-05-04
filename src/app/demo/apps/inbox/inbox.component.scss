@@ -5,6 +5,7 @@ $color__checkbox__star: #616161;
 
 $height__inbox_input__title: 56px;
 $margin-top__inbox_input__title: 42px;
+$max-width_detail: 800px;
 
 :host {
   display: block;
@@ -303,6 +304,7 @@ $margin-top__inbox_input__title: 42px;
 
         .mail-detail {
           padding: 24px 32px;
+          max-width: $max-width_detail;
 
           .mail-header {
 // background: yellow;
@@ -439,4 +441,9 @@ $margin-top__inbox_input__title: 42px;
       max-width: calc(100% - 290px); // 250px sidebar + 40px margin
     }
   }
+}
+
+ms-wizard-beginner {
+  max-width: $max-width_detail;
+  // height: 400px;
 }
